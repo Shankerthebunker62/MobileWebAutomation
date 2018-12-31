@@ -12,3 +12,12 @@
 * gradle wrapper installGulp clean build --refresh-dependencies task e2e --scan
 * gradle --stop
 </br></br>
+
+# NPM Updates:
+
+* sudo npm install npm-check --global --save
+</br></br>
+* sudo npm install npm-check-updates --global --save
+* sudo npm install npm-check-updates --global --update-all --save
+* sudo npm install
+</br></br> 
