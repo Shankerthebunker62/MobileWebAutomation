@@ -1,0 +1,37 @@
+apply plugin: 'maven'
+apply plugin: "com.moowork.gulp"
+
+description = """Protractor-GradleII"""
+
+buildscript {
+
+  repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+  	mavenLocal()
+  	mavenCentral()
+  	
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  
+  dependencies {
+    classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
+  }
+}
+
+ext {
+  gradleVersion = '5.0'
+}
+
+configurations.all {
+  // check for updates every build for Internal Cross Train references
+  // TODO: Adds too many copies to the cache ~/.gradle/caches
+  resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+task e2e(type: GulpTask, dependsOn: npmInstall) { 
+    args = ["test:e2e"]
+}
