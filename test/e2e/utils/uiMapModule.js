@@ -1,10 +1,10 @@
-/*******************************************************************
- *                                        						   *
- * Author: Siddharth Shanker               						   *
- * Date: December, 2018.                            			   *
- * GitHub: https://github.com/Shankerthebunker62/Protractor-Gradle *
- *                                        						   *
- *******************************************************************/
+/*********************************************************************
+ *                                        						     *
+ * Author: Siddharth Shanker               						     *
+ * Date: December, 2018.                            			     *
+ * GitHub: https://github.com/Shankerthebunker62/Protractor-GradleII *
+ *                                        						     *
+ *********************************************************************/
 
 //Project location path
 const dirPath = '/Users/shankerthebunker/git/Protractor-Gradle';

@@ -1,10 +1,10 @@
-/*******************************************************************
- *                                        						   *
- * Author: Siddharth Shanker               						   *
- * Date: December, 2018.                            			   *
- * GitHub: https://github.com/Shankerthebunker62/Protractor-Gradle *
- *                                        						   *
- *******************************************************************/
+/*********************************************************************
+ *                                        						     *
+ * Author: Siddharth Shanker               						     *
+ * Date: December, 2018.                            			     *
+ * GitHub: https://github.com/Shankerthebunker62/Protractor-GradleII *
+ *                                        						     *
+ *********************************************************************/
 
 const Path = require('path');
 
@@ -22,24 +22,42 @@ exports.config = {
 		seleniumAddress: 'http://localhost:4723/wd/hub',
 
 		/**
+		 * capabilities
+		 */
+		
+		capabilities: {
+			browserName : 'safari',
+			showIOSLog : true,
+			platformName : 'iOS',
+			platformVersion : '12.1',
+			deviceName : 'iPhone XR',
+			automationName : 'XCUITest',
+			showXcodeLog : true,
+		},
+		
+		/**
 		 * multiCapabilities
 		 */
+		/*
 		multiCapabilities : [ 
 			{
+			    // iOS Device
 				browserName : 'safari',
 				showIOSLog : true,
 				platformName : 'iOS',
 				platformVersion : '12.1',
 				deviceName : 'iPhone XR',
-				automationName : 'XCUITest'
+				automationName : 'XCUITest',
 
 			}, {
+				// Android Device
 				browserName: 'chrome',
 			    platformName: 'Android',
 			    platformVersion: '9',
-			    deviceName: 'Pixel_2_XL_API_28'
+			    deviceName: 'Pixel_2_XL_API_28',
 			}
 		],
+		*/
 		
 		onPrepare: function () {
 			VideoReporter.prototype.jasmineStarted = function() {
@@ -55,7 +73,10 @@ exports.config = {
 					}
 				}
 			};
-				    
+				
+			//ffmpegCmd: Path.normalize('./node_modules/ffmpeg-binaries/bin/ffmpeg.exe'),  // --> Windows OS
+	        //ffmpegCmd: Path.normalize('/usr/local/bin/ffmpeg'), // --> Unix/Linux OS
+    
 			jasmine.getEnv().addReporter(new VideoReporter({
 			    baseDirectory: Path.normalize('./videos/'),
 			    
@@ -63,9 +84,7 @@ exports.config = {
 			    createSubtitles: true,
 			    saveSuccessVideos: true,
 			    
-			    //ffmpegCmd: Path.normalize('./node_modules/ffmpeg-binaries/bin/ffmpeg.exe'),  // --> Windows OS
-	            //ffmpegCmd: Path.normalize('/usr/local/bin/ffmpeg'), // --> Unix/Linux OS
-	            ffmpegArgs: [
+			    ffmpegArgs: [
 	            	  '-y',
 	            	  '-r', '30',
 	            	  '-f', 'avfoundation',
@@ -138,6 +157,6 @@ exports.config = {
 			}
 		}
 		
-		// baseUrl: 'http://localhost:8000',
-		// baseUrl: 'http://10.0.2.2:8000'
+		// baseUrl: 'http://localhost:8000', // iOS base URL
+		// baseUrl: 'http://10.0.2.2:8000' // Android base URL
 }
