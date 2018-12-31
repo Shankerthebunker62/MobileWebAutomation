@@ -131,6 +131,8 @@ exports.config = {
 			    }));
 			
 			wdBridge.initFromProtractor(exports.config);
+			
+			browser.waitForAngularEnabled(true); //true for angular, false otherwise.
 		},
 		
 		specs: ['test\e2e\specs\*.js'],
