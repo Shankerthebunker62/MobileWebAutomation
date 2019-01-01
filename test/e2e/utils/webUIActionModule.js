@@ -42,7 +42,7 @@ exports.select = function (elementName, pageData, dataColumn) {
 	_testData = testDataModule.getExcelTestData(pageData, dataColumn);
 	
 	try {
-		_element.sendKeys(_testData);
+		await _element.sendKeys(_testData);
 		
 		_result = true;
 	} catch (error) {
@@ -68,8 +68,8 @@ exports.setValue = function (elementName, pageData, dataColumn) {
 	_testData = testDataModule.getExcelTestData(pageData, dataColumn);
 	
 	try {
-		_element.clear();
-		_element.sendKeys(_testData);
+		await _element.clear();
+		await _element.sendKeys(_testData);
 		
 		_result = true;
 	} catch (error) {
@@ -92,7 +92,7 @@ exports.click = function (elementName) {
 	_element = uiMapModule.getExcelUIMap(elementName);
 	
 	try {
-		_element.click();
+		await _element.click();
 		
 		_result = true;
 	} catch (error) {
@@ -115,7 +115,7 @@ exports.touchAction = function (elementName) {
 	_element = uiMapModule.getExcelUIMap(elementName);
 	
 	try {
-		browser.driver.touchAction().tap(_element).perform();
+		await browser.driver.touchAction().tap(_element).perform();
 		
 		_result = true;
 	} catch (error) {
@@ -138,7 +138,7 @@ exports.sendKeysEnter = function (elementName) {
 	_element = uiMapModule.getExcelUIMap(elementName);
 	
 	try {
-		_element.sendKeys(protractor.Key.ENTER);
+		await _element.sendKeys(protractor.Key.ENTER);
 		
 		_result = true;
 	} catch (error) {
@@ -161,7 +161,7 @@ exports.clear = function (elementName) {
 	_element = uiMapModule.getExcelUIMap(elementName);
 	
 	try {
-		_element.clear();
+		await _element.clear();
 		
 		_result = true;
 	} catch (error) {
@@ -187,7 +187,7 @@ exports.verifySelectOption = function (elementName, pageData, dataColumn) {
 	_testData = testDataModule.getExcelTestData(pageData, dataColumn);
 	
 	try {
-		let _data = element(_element.locator()).$('option:checked').getText();
+		let _data = await element(_element.locator()).$('option:checked').getText();
 		expect(_data).toEqual(_testData);
 		
 		if(_data === _testData)
@@ -215,7 +215,7 @@ exports.verifyValue = function (elementName, pageData, dataColumn) {
 	_testData = testDataModule.getExcelTestData(pageData, dataColumn);
 	
 	try {
-		let _data = _element.getAttribute('value');
+		let _data = await _element.getAttribute('value');
 		expect(_data).toEqual(_testData);
 		
 		if (_data === _testData)
@@ -243,7 +243,7 @@ exports.verifyText = function (elementName, pageData, dataColumn) {
 	_testData = testDataModule.getExcelTestData(pageData, dataColumn);
 	
 	try {
-		let _data = _element.getText();
+		let _data = await _element.getText();
 		expect(_data).toEqual(_testData);
 		
 		if (_data === _testData)

@@ -16,60 +16,70 @@ describe('Protractor Demo App 01', function() {
 	let value;
 	let originalTimeout;
 	
-	beforeAll(function() {
-		_SuperCalculator.launchUrl();
-	});
-	
-	beforeEach(function(done) {
+	beforeAll(async function(done) {
 		originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
         
+		_SuperCalculator.launchUrl();
+	});
+	
+	beforeEach(async function(done) {
 		setTimeout(function() {
 		      value = 0;
 		      done();
 		 }, 1);
-	})
+	});
 	
-	it('Multiply Two Numbers', function(done) {
+	it('Multiply Two Numbers',async function(done) {
+		debugger;
 		value++;
+		
 		_SuperCalculator.Multiply('_DefaultCompRowTwo');
 		
 		done();
 	});
 	
-	it('Add Two Numbers', function(done) {
+	it('Add Two Numbers',async function(done) {
+		debugger;
 		value++;
+		
 		_SuperCalculator.Add('_DefaultCompRowTwo');
 		
 		done();
 	});
 	
-	it('Module Two Numbers', function(done) {
+	it('Module Two Numbers',async function(done) {
+		debugger;
 		value++;
+		
 		_SuperCalculator.Module('_DefaultCompRowTwo');
 		
 		done();
 	});
 	
-	it('Divide Two Numbers', function(done) {
+	it('Divide Two Numbers',async function(done) {
+		debugger;
 		value++;
+		
 		_SuperCalculator.Divide('_DefaultCompRowTwo');
 		
 		done();
 	});
 	
-	it('Substract Two Numbers', function(done) {
+	it('Substract Two Numbers',async function(done) {
+		debugger;
 		value++;
+		
 		_SuperCalculator.Substract('_DefaultCompRowTwo');
 		
 		done();
 	});
 	
-	afterEach(function() {
-	      jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+	afterEach(async function() {
+		jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
 	});
 	
-	afterAll(function() {
+	afterAll(async function() {
 		_SuperCalculator.closeBrowser();
 	});
 });

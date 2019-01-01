@@ -23,11 +23,11 @@ var SuperCalculator = function () {
 	 * launchUrl method to launch application url which is under test
 	 */
 	this.launchUrl = function () {
-		browser.driver.getSession().then((session) => {
+		await browser.driver.getSession().then((session) => {
 		      console.debug(session);
 		});
 		
-		browser.get('http://juliemr.github.io/protractor-demo/');
+		await browser.get('http://juliemr.github.io/protractor-demo/');
 	}
 	
 	/**
@@ -164,7 +164,7 @@ var SuperCalculator = function () {
 	 * Close  browser after application test has been performed
 	 */
 	this.closeBrowser = function () {
-		browser.close();
+		await browser.close();
 	}
 };
 

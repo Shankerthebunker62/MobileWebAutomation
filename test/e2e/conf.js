@@ -33,6 +33,12 @@ exports.config = {
 			deviceName : 'iPhone XR',
 			automationName : 'XCUITest',
 			showXcodeLog : true,
+			autoWebview: 'true',
+			autoWebviewTimeout: '10000',
+			autoAcceptAlerts: 'true',
+			// app: '[ABSOLUTE_PATH_TO_APK/ABSOLUTE_PATH_TO_APP]',
+	        // bundleId: '[com..]',
+			// udid: '[ONLY_FOR_iOS=THE_UDID_OF_DEVICE]',
 		},
 		
 		/**
@@ -135,7 +141,7 @@ exports.config = {
 			browser.waitForAngularEnabled(true); //true for angular, false otherwise.
 		},
 		
-		specs: ['test\e2e\specs\*.js'],
+		specs: ['test\e2e\specs\test01.js'],
 		
 		restartBrowserBetweenTests: false,
 		
@@ -165,8 +171,8 @@ exports.config = {
 			print: function () {
 				console.log();
 			}
-		}
+		},
 		
-		// baseUrl: 'http://localhost:8000', // iOS base URL
+		baseUrl: 'http://localhost:8000' // iOS base URL
 		// baseUrl: 'http://10.0.2.2:8000' // Android base URL
 }
