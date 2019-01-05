@@ -1,10 +1,10 @@
-/*********************************************************************
- *                                        						     *
- * Author: Siddharth Shanker               						     *
- * Date: December, 2018.                            			     *
- * GitHub: https://github.com/Shankerthebunker62/Protractor-GradleII *
- *                                        						     *
- *********************************************************************/
+/*******************************************************************
+ *                                        						   *
+ * Author: Siddharth Shanker               						   *
+ * Date: December, 2018.                            			   *
+ * GitHub: https://github.com/Shankerthebunker62/Protractor-Gradle *
+ *                                        						   *
+ *******************************************************************/
 
 const dirPath = '/Users/shankerthebunker/git/Protractor-Gradle';
 
@@ -22,13 +22,14 @@ var SuperCalculator = function () {
 	/**
 	 * launchUrl method to launch application url which is under test
 	 */
-	this.launchUrl = function () {
-		await browser.driver.getSession().then((session) => {
-		      console.debug(session);
-		});
+	this.launchUrl = function (_rowId, testCasePurpose) {
+		if (_rowId === null || _rowId === undefined)
+			throw '_rowId cannot be null';
+		else 
+			pageData = 'launchUrl.' + _rowId;
 		
-		await browser.get('http://juliemr.github.io/protractor-demo/');
-	}
+		uiDriver.launchApplication(pageData, 'Navigate@URL', testCasePurpose);
+	};
 	
 	/**
 	 * Module method to perform module of two number and,  verify the result
@@ -51,10 +52,10 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Module.operator', pageData, 'Select@Operator');
 		
-		uiDriver.touchAction ('Module.submit');
+		uiDriver.click ('Module.submit');
 		
 		uiDriver.verifyText ('Module.output', pageData, 'verify@Output')
-	}
+	};
 
 	/**
 	 * Add method to perform addition of two number and,  verify the result
@@ -77,10 +78,10 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Add.operator', pageData, 'Select@Operator');
 		
-		uiDriver.touchAction ('Add.submit');
+		uiDriver.click ('Add.submit');
 		
 		uiDriver.verifyText ('Add.output', pageData, 'verify@Output')
-	}
+	};
 
 	/**
 	 * Substract method to perform substraction of two number and,  verify the result
@@ -103,10 +104,10 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Substract.operator', pageData, 'Select@Operator');
 		
-		uiDriver.touchAction ('Substract.submit');
+		uiDriver.click ('Substract.submit');
 		
 		uiDriver.verifyText ('Substract.output', pageData, 'verify@Output')
-	}
+	};
 	
 	/**
 	 * Multiply method to perform multiplication of two number and,  verify the result
@@ -129,10 +130,10 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Multiply.operator', pageData, 'Select@Operator');
 		
-		uiDriver.touchAction ('Multiply.submit');
+		uiDriver.click ('Multiply.submit');
 		
 		uiDriver.verifyText ('Multiply.output', pageData, 'verify@Output')
-	}
+	};
 	
 	/**
 	 * Divide method to perform division of two number and,  verify the result
@@ -155,17 +156,17 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Divide.operator', pageData, 'Select@Operator');
 		
-		uiDriver.touchAction ('Divide.submit');
+		uiDriver.click ('Divide.submit');
 		
 		uiDriver.verifyText ('Divide.output', pageData, 'verify@Output')
-	}
+	};
 	
 	/**
 	 * Close  browser after application test has been performed
 	 */
 	this.closeBrowser = function () {
-		await browser.close();
-	}
+		uiDriver.close();
+	};
 };
 
 module.exports = SuperCalculator;

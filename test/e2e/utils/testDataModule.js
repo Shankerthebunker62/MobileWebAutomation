@@ -1,10 +1,10 @@
-/*********************************************************************
- *                                        						     *
- * Author: Siddharth Shanker               						     *
- * Date: December, 2018.                            			     *
- * GitHub: https://github.com/Shankerthebunker62/Protractor-GradleII *
- *                                        						     *
- *********************************************************************/
+/*******************************************************************
+ *                                        						   *
+ * Author: Siddharth Shanker               						   *
+ * Date: December, 2018.                            			   *
+ * GitHub: https://github.com/Shankerthebunker62/Protractor-Gradle *
+ *                                        						   *
+ *******************************************************************/
 
 //Project location path
 const dirPath = '/Users/shankerthebunker/git/Protractor-Gradle';
@@ -99,7 +99,8 @@ exports.getExcelTestData = function (pageData, dataColumn) {
 		if (typeof nextCell !== undefined || typeof nextCell !== null) {
 			testData = nextCell.w;
 		}
-
+		
+		console.debug('TestData Found as: ' + testData);
 	} catch (error) {
 		console.error(error.message);
 	}
