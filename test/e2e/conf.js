@@ -19,6 +19,10 @@ let wdBridge = wdBridgeModule(protractor, wd);
 
 exports.config = {
 		
+		// getPageTimeout: 15,
+		
+		allScriptsTimeout: 30000,
+		
 		seleniumAddress: 'http://localhost:4723/wd/hub',
 
 		/**
@@ -26,19 +30,23 @@ exports.config = {
 		 */
 		
 		capabilities: {
+			// iOS Device
+			autoAcceptAlerts : true,
+			automationName : 'XCUITest',
+			autoWebview : true,
+			autoWebviewTimeout : '10000',
 			browserName : 'safari',
-			showIOSLog : true,
+			deviceName : 'iPhone XR',
 			platformName : 'iOS',
 			platformVersion : '12.1',
-			deviceName : 'iPhone XR',
-			automationName : 'XCUITest',
+			showIOSLog : true,
 			showXcodeLog : true,
-			autoWebview: 'true',
-			autoWebviewTimeout: '10000',
-			autoAcceptAlerts: 'true',
-			// app: '[ABSOLUTE_PATH_TO_APK/ABSOLUTE_PATH_TO_APP]',
-	        // bundleId: '[com..]',
-			// udid: '[ONLY_FOR_iOS=THE_UDID_OF_DEVICE]',
+			safariAllowPopups : true,
+		    safariOpenLinksInBackground : true,
+			unexpectedAlertBehaviour : 'accept',
+			// app : '[ABSOLUTE_PATH_TO_APK/ABSOLUTE_PATH_TO_APP]',
+	        // bundleId : '[com..]',
+			// udid : '[ONLY_FOR_iOS=THE_UDID_OF_DEVICE]',
 		},
 		
 		/**
@@ -64,6 +72,11 @@ exports.config = {
 			}
 		],
 		*/
+		
+		params: {
+			// Applitools Eyes api_key to publish my results to dashboard
+			API_KEY: '4g99KGsTdYyykThqEva6NdXb9nnw9ZTvi99yIyF8IO107FE110'
+		},
 		
 		onPrepare: function () {
 			VideoReporter.prototype.jasmineStarted = function() {
@@ -98,7 +111,7 @@ exports.config = {
 	            	  '-g', '300',
 	            	  '-vcodec', 'mpeg4'
 	              ]
-	          }));
+	        }));
 			
 			jasmine.getEnv().addReporter(new HtmlReporter({
 		         baseDirectory: './reports/HtmlReport_' + Date(),
@@ -134,14 +147,14 @@ exports.config = {
 			      },
 			       
 			      customProcessors: []
-			    }));
+			}));
 			
 			wdBridge.initFromProtractor(exports.config);
 			
 			browser.waitForAngularEnabled(true); //true for angular, false otherwise.
 		},
 		
-		specs: ['test\e2e\specs\test01.js'],
+		specs: ['test\e2e\specs\*.js'],
 		
 		restartBrowserBetweenTests: false,
 		
@@ -153,7 +166,9 @@ exports.config = {
 		
 		resultJsonOutputFile: 'console.json',
 		
-		//highlightDelay: 1000,
+		rootElement: 'body',
+		
+		highlightDelay: 1000,
 		
 		framework: 'jasmine2',
 		
@@ -164,7 +179,7 @@ exports.config = {
 			
 			includeStackTrace: true,
 			
-			defaultTimeoutInterval: 20000,
+			defaultTimeoutInterval: 30000,
 			
 			realtimeFailure: true,
 			
