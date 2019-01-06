@@ -21,48 +21,48 @@ exports.config = {
 		
 		// getPageTimeout: 15,
 		
-		allScriptsTimeout: 30000,
+		// allScriptsTimeout: 30000,
 		
 		seleniumAddress: 'http://localhost:4723/wd/hub',
 
 		/**
 		 * capabilities
 		 */
-		
+		/*
 		capabilities: {
 			// iOS Device
-			autoAcceptAlerts : true,
+			// autoAcceptAlerts : true,
 			automationName : 'XCUITest',
-			autoWebview : true,
-			autoWebviewTimeout : '10000',
+			// autoWebview : true,
+			// autoWebviewTimeout : '10000',
 			browserName : 'safari',
 			deviceName : 'iPhone XR',
 			platformName : 'iOS',
 			platformVersion : '12.1',
 			showIOSLog : true,
 			showXcodeLog : true,
-			safariAllowPopups : true,
-		    safariOpenLinksInBackground : true,
-			unexpectedAlertBehaviour : 'accept',
+			// safariAllowPopups : true,
+		    // safariOpenLinksInBackground : true,
+			// unexpectedAlertBehaviour : 'accept',
 			// app : '[ABSOLUTE_PATH_TO_APK/ABSOLUTE_PATH_TO_APP]',
 	        // bundleId : '[com..]',
 			// udid : '[ONLY_FOR_iOS=THE_UDID_OF_DEVICE]',
 		},
+		*/
 		
 		/**
 		 * multiCapabilities
 		 */
-		/*
 		multiCapabilities : [ 
 			{
-			    // iOS Device
+				// iOS Device
+				automationName : 'XCUITest',
 				browserName : 'safari',
-				showIOSLog : true,
+				deviceName : 'iPhone XR',
 				platformName : 'iOS',
 				platformVersion : '12.1',
-				deviceName : 'iPhone XR',
-				automationName : 'XCUITest',
-
+				showIOSLog : true,
+				showXcodeLog : true
 			}, {
 				// Android Device
 				browserName: 'chrome',
@@ -71,10 +71,10 @@ exports.config = {
 			    deviceName: 'Pixel_2_XL_API_28',
 			}
 		],
-		*/
 		
 		params: {
 			// Applitools Eyes api_key to publish my results to dashboard
+			// global: variable = value {call it as browser.params.variable}
 			API_KEY: '4g99KGsTdYyykThqEva6NdXb9nnw9ZTvi99yIyF8IO107FE110'
 		},
 		
@@ -188,6 +188,6 @@ exports.config = {
 			}
 		},
 		
-		baseUrl: 'http://localhost:8000' // iOS base URL
+		// baseUrl: 'http://localhost:8000' // iOS base URL
 		// baseUrl: 'http://10.0.2.2:8000' // Android base URL
 }
