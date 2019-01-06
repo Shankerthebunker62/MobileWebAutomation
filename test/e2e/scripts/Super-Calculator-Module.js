@@ -52,7 +52,7 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Module.operator', pageData, 'Select@Operator');
 		
-		uiDriver.click ('Module.submit');
+		uiDriver.touchActions ('Module.submit');
 		
 		uiDriver.verifyText ('Module.output', pageData, 'verify@Output')
 	};
@@ -78,7 +78,7 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Add.operator', pageData, 'Select@Operator');
 		
-		uiDriver.click ('Add.submit');
+		uiDriver.touchActions ('Add.submit');
 		
 		uiDriver.verifyText ('Add.output', pageData, 'verify@Output')
 	};
@@ -104,7 +104,7 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Substract.operator', pageData, 'Select@Operator');
 		
-		uiDriver.click ('Substract.submit');
+		uiDriver.touchActions ('Substract.submit');
 		
 		uiDriver.verifyText ('Substract.output', pageData, 'verify@Output')
 	};
@@ -130,7 +130,7 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Multiply.operator', pageData, 'Select@Operator');
 		
-		uiDriver.click ('Multiply.submit');
+		uiDriver.touchActions ('Multiply.submit');
 		
 		uiDriver.verifyText ('Multiply.output', pageData, 'verify@Output')
 	};
@@ -156,7 +156,7 @@ var SuperCalculator = function () {
 		
 		uiDriver.verifySelectOption ('Divide.operator', pageData, 'Select@Operator');
 		
-		uiDriver.click ('Divide.submit');
+		uiDriver.touchActions ('Divide.submit');
 		
 		uiDriver.verifyText ('Divide.output', pageData, 'verify@Output')
 	};
